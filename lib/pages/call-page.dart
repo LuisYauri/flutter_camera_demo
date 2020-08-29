@@ -65,6 +65,7 @@ class _CallPageState extends State<CallPage> {
   Future<void> _initAgoraRtcEngine() async {
     await AgoraRtcEngine.create(APP_ID);
     await AgoraRtcEngine.enableVideo();
+
     await AgoraRtcEngine.setChannelProfile(ChannelProfile.LiveBroadcasting);
     await AgoraRtcEngine.setClientRole(widget.role);
   }
@@ -84,7 +85,7 @@ class _CallPageState extends State<CallPage> {
       int elapsed,
     ) {
       setState(() {
-        final info = 'onJoinChannel: $channel, uid: $uid';
+        final info = 'onJoinChannel: $channel, uid: $uid, elapsed: $elapsed';
         _infoStrings.add(info);
       });
     };
